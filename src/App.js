@@ -19,7 +19,7 @@ class App extends Component {
         <DealOfWeek />
         <ShippingBar />
         <Footer />
-      </div >
+      </div>
     );
   }
 }
