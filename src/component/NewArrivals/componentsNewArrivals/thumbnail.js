@@ -10,11 +10,20 @@ const Thumbnail = (props) => {
         </div>
         <div className="favorite favorite_left"></div>
         <div className="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-          <span>-$20</span>
+          {
+            props.salePrice < props.originalPrice ? <span>Sale</span> : <span>New</span>
+          }
         </div>
         <div className="product_info">
           <h6 className="product_name"><a href="single.html">{props.name}</a></h6>
-          <div className="product_price">{props.salePrice}<span>{props.originalPrice}</span></div>
+          <div className="product_price">
+            {
+              props.salePrice < props.originalPrice ?
+                <React.Fragment>{props.salePrice}$  {<span>{props.originalPrice}$</span>}</React.Fragment> :
+                `${props.originalPrice}$`
+            }
+          </div>
+
         </div>
       </div>
       <AddToCart />
